@@ -12,8 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('lloga', function (Blueprint $table) {
-            $table->string('dni_client', 20);
-            $table->string('codi_unic', 7);
+            $table->string('dni_client');
+            $table->foreign('dni_client')->references('dni_client')->on('clients')->onDelete('cascade')->onUpdate('cascade');
+            $table->string('codi_unic');
+            $table->foreign('codi_unic')->references('codi_unic')->on('apartament')->onDelete('cascade')->onUpdate('cascade');
             $table->primary(['dni_client', 'codi_unic']);
             $table->date('data_inici_lloguer');
             $table->time('hora_inici_lloguer');
@@ -24,11 +26,8 @@ return new class extends Migration
             $table->decimal('preu_per_dia', 8, 2);
             $table->boolean('diposit');
             $table->decimal('quantitat_diposit', 8, 2);
-            $table->enum('tipus_asseguranca', ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia']);
+            $table->enum('tipus_asseguranca', ['Franquícia fins a 1000 Euros', 'Franquícia fins a 500 Euros', 'Sense franquícia']);
             $table->timestamps();
-
-            $table->foreign('dni_client')->references('dni_client')->on('clients')->onDelete('cascade');
-            $table->foreign('codi_unic')->references('codi_unic')->on('apartament')->onDelete('cascade');
         });
     }
 
