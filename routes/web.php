@@ -5,6 +5,7 @@ use App\Http\Controllers\ClientController;
 use App\Http\Controllers\apartamentsController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,6 +33,8 @@ Route::middleware('auth')->group(function () {
         return redirect('trebs/index_basic');
     })->withoutMiddleware('adminAuth');   
 
+    
+    Route::get('/pdf', [PDFController::class, 'generatePDF']);
     Route::resource('apart', apartamentsController::class);
     Route::resource('clients', ClientController::class);
 
