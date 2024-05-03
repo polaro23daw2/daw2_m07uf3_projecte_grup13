@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('email');
             $table->enum('tipus_de_targeta', ['Dèbit', 'Crèdit']);
             $table->string('numero_de_la_targeta');
+            $table->timestamps();
         });
     }
 

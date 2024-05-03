@@ -25,6 +25,7 @@ return new class extends Migration
             $table->boolean('diposit');
             $table->decimal('quantitat_diposit', 8, 2);
             $table->enum('tipus_asseguranca', ['Franquícia fins a 1000 Euros', 'Franquícia fins 500 Euros', 'Sense franquícia']);
+            $table->timestamps();
 
             $table->foreign('dni_client')->references('dni_client')->on('clients')->onDelete('cascade');
             $table->foreign('codi_unic')->references('codi_unic')->on('apartament')->onDelete('cascade');

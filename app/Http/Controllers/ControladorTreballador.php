@@ -106,7 +106,6 @@ class ControladorTreballador extends Controller
         return view('dashboard');
     }
 
-
     /**
      * Remove the specified resource from storage.
      */

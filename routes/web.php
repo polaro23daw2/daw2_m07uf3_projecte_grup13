@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ControladorTreballador;
+use App\Http\Controllers\ClientController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -30,9 +31,10 @@ Route::middleware('auth')->group(function () {
         return redirect('trebs/index_basic');
     })->withoutMiddleware('adminAuth');
 
+    Route::resource('clients', ClientController::class);
+
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');
     Route::get('trebs/show_basic/{tid}', [ControladorTreballador::class, 'show_basic'])->name('trebs.show_basic');
-    
     // Rutas específicas para admin y no admin
     Route::group(['middleware' => 'adminAuth'], function () {
         Route::get('/dashboard', function () {

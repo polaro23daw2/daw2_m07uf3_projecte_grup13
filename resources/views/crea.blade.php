@@ -17,7 +17,6 @@
     @endif
     <form method="post" action="/trebs">
         @csrf
-        <!-- https://laravel.com/docs/10.x/csrf -->
         <div class="form-group">           
             <label for="nom">Nom</label>
             <input type="text" class="form-control" name="nom"/>

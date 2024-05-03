@@ -24,6 +24,7 @@ return new class extends Migration
             $table->boolean('ascensor');
             $table->enum('calefaccio', ['Elèctrica', 'Gas Natural', 'Butà']);
             $table->boolean('aire_condicionat');
+            $table->timestamps();
         });
     }
 

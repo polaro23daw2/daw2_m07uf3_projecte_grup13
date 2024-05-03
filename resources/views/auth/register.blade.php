@@ -38,13 +38,20 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- tipus -->
         <div>
             <x-input-label for="tipus" :value="__('tipus')" />
-            <x-text-input id="tipus" class="block mt-1 w-full" type="text" name="role" :value="old('tipus')"
-                required />
+        
+            <!-- Dropdown select for role -->
+            <select id="tipus" name="tipus" class="block mt-1 w-full" required>
+                <option value="" disabled {{ old('tipus') ? '' : 'selected' }}>Selecciona un tipus</option>
+                <option value="treballador" {{ old('tipus') == 'treballador' ? 'selected' : '' }}>Treballador</option>
+                <option value="cap_de_departament" {{ old('tipus') == 'cap_de_departament' ? 'selected' : '' }}>Cap de Departament</option>
+            </select>
+        
             <x-input-error :messages="$errors->get('tipus')" class="mt-2" />
         </div>
+        
+        
         <div class="flex items-center justify-end mt-4">
             <!-- <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('login') }}">
                 {{ __('Already registered?') }}
