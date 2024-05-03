@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Treballador;
+use PDF;
 
 class ControladorTreballador extends Controller
 {
@@ -114,4 +115,5 @@ class ControladorTreballador extends Controller
         $treballador = Treballador::findOrFail($tid)->delete();
         return view('dashboard');
     }
+    
 }

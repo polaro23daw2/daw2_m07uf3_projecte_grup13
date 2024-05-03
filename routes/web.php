@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');
     Route::get('trebs/show_basic/{tid}', [ControladorTreballador::class, 'show_basic'])->name('trebs.show_basic');
-
+    
     // Rutas específicas para admin y no admin
     Route::group(['middleware' => 'adminAuth'], function () {
         Route::get('/dashboard', function () {
