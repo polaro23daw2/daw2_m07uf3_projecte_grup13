@@ -67,7 +67,7 @@ class ControladorTreballador extends Controller
     public function show_basic($tid)
     {
         $dades_treballador = Treballador::findOrFail($tid);
-        return view('mostra', compact('dades_treballador'));
+        return view('mostra-basica', compact('dades_treballador'));
     }
 
 

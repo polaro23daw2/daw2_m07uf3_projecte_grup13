@@ -17,13 +17,13 @@ class UserSeeder extends Seeder
         $llista_usuaris = [
             [
                 'name' => 'leniad',
-                'role' => 'admin',
+                'tipus' => 'cap_de_departament',
                 'email' => 'leinad@fjeclot.net',
                 'password' => Hash::make('fjeClot23#')
             ],
             [
                 'name' => 'aletse',
-                'role' => 'basic',
+                'tipus' => 'treballador',
                 'email' => 'aletse@fjeclot.net',
                 'password' => Hash::make('clotFje24@')
             ],

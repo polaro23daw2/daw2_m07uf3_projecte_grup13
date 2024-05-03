@@ -1,8 +1,8 @@
 <?php
 
+use App\Http\Controllers\ControladorTreballador;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ControladorTreballador;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,7 +13,7 @@ use App\Http\Controllers\ControladorTreballador;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+ */
 
 Route::get('/', function () {
     return view('inici');
@@ -25,11 +25,11 @@ Route::middleware('auth')->group(function () {
         return view('dashboard-basic');
     })->name('dashboard-basic');
 
-        // Ruta específica para usuarios no admin
-        Route::get('trebs', function () {
-            return redirect('trebs/index_basic');
-        })->withoutMiddleware('adminAuth');
-        
+    // Ruta específica para usuarios no admin
+    Route::get('trebs', function () {
+        return redirect('trebs/index_basic');
+    })->withoutMiddleware('adminAuth');
+
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');
     Route::get('trebs/show_basic/{tid}', [ControladorTreballador::class, 'show_basic'])->name('trebs.show_basic');
 
@@ -43,7 +43,6 @@ Route::middleware('auth')->group(function () {
         Route::resource('trebs', ControladorTreballador::class);
 
     });
-
 
 });
 

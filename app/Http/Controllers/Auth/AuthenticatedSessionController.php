@@ -26,9 +26,9 @@ class AuthenticatedSessionController extends Controller
     {
         $request->authenticate();
         $request->session()->regenerate();
-        if (auth()->user()->role == 'admin') {
+        if (auth()->user()->tipus == 'cap_de_departament') {
             return redirect('dashboard');
-        } elseif (auth()->user()->role == 'basic') {
+        } elseif (auth()->user()->tipus == 'treballador') {
             return redirect('dashboard-basic');
         } else {
             return auth()->logout();

@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('clients', function (Blueprint $table) {
-            $table->string('dni_client')->primary();
+            $table->string('dni_client', 20)->primary();
             $table->string('nom_i_cognoms');
             $table->integer('edat');
             $table->string('telefon');
@@ -20,10 +20,9 @@ return new class extends Migration
             $table->string('ciutat');
             $table->string('pais');
             $table->string('email');
-            $table->string('tipus_targeta');
-            $table->string('numero_targeta');
+            $table->enum('tipus_de_targeta', ['Dèbit', 'Crèdit']);
+            $table->string('numero_de_la_targeta');
         });
-        
     }
 
     /**

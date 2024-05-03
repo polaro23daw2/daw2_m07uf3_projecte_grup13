@@ -11,21 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('apartaments', function (Blueprint $table) {
+        Schema::create('apartament', function (Blueprint $table) {
             $table->string('codi_unic', 7)->primary();
             $table->string('referencia_catastral');
             $table->string('ciutat');
             $table->string('barri');
-            $table->string('nom_carrer');
-            $table->integer('numero_carrer');
-            $table->string('pis')->nullable();
-            $table->integer('nombre_llits');
-            $table->integer('nombre_habitacions');
+            $table->string('nom_del_carrer');
+            $table->integer('numero_del_carrer');
+            $table->integer('pis');
+            $table->integer('nombre_de_llits');
+            $table->integer('nombre_dhabitacions');
             $table->boolean('ascensor');
-            $table->string('calefaccio');
+            $table->enum('calefaccio', ['Elèctrica', 'Gas Natural', 'Butà']);
             $table->boolean('aire_condicionat');
         });
-        
     }
 
     /**

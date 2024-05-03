@@ -61,7 +61,7 @@
             <label for="fotografia">Fotografia</label>
             <input type="image" class="form-control" name="fotografia"/>
         </div>
-        <div class="form-group">           
+        <div class="form-group">
             <label for="treball_distancia">Treball a distància</label>
             <select name="treball_distancia">
 			    <option value="1">Sí</option>
