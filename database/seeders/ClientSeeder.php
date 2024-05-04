@@ -17,7 +17,7 @@ class ClientSeeder extends Seeder
     {
         $llista_Clients = [
             [
-                'dni_client' => Str::random(10),
+                'dni_client' => '12345678t',
                 'nom_i_cognoms' => 'Joan Martí',
                 'edat' => 40,
                 'telefon' => '931234567',
@@ -29,7 +29,7 @@ class ClientSeeder extends Seeder
                 'numero_de_la_targeta' => '1234567890123456'
             ],
             [
-                'dni_client' => Str::random(10),
+                'dni_client' => '91011121f',
                 'nom_i_cognoms' => 'Maria Lopez',
                 'edat' => 35,
                 'telefon' => '932345678',
