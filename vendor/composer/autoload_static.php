@@ -655,7 +655,6 @@ class ComposerStaticInitc67caf3b0fec23346478edf6341ae508
         'App\\Http\\Middleware\\AdminAuth' => __DIR__ . '/../..' . '/app/Http/Middleware/AdminAuth.php',
         'App\\Http\\Requests\\Auth\\LoginRequest' => __DIR__ . '/../..' . '/app/Http/Requests/Auth/LoginRequest.php',
         'App\\Http\\Requests\\ProfileUpdateRequest' => __DIR__ . '/../..' . '/app/Http/Requests/ProfileUpdateRequest.php',
-        'App\\Listeners\\SendLoginNotificationUsingPHPMailer' => __DIR__ . '/../..' . '/app/Listeners/SendLoginNotificationUsingPHPMailer.php',
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
         'App\\Models\\Treballador' => __DIR__ . '/../..' . '/app/Models/Treballador.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',

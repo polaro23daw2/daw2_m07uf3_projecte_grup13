@@ -24,7 +24,6 @@ return array(
     'App\\Http\\Middleware\\AdminAuth' => $baseDir . '/app/Http/Middleware/AdminAuth.php',
     'App\\Http\\Requests\\Auth\\LoginRequest' => $baseDir . '/app/Http/Requests/Auth/LoginRequest.php',
     'App\\Http\\Requests\\ProfileUpdateRequest' => $baseDir . '/app/Http/Requests/ProfileUpdateRequest.php',
-    'App\\Listeners\\SendLoginNotificationUsingPHPMailer' => $baseDir . '/app/Listeners/SendLoginNotificationUsingPHPMailer.php',
     'App\\Models\\Client' => $baseDir . '/app/Models/Client.php',
     'App\\Models\\Treballador' => $baseDir . '/app/Models/Treballador.php',
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
