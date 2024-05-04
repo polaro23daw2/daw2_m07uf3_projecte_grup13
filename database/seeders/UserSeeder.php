@@ -19,7 +19,7 @@ class UserSeeder extends Seeder
             [
                 'name' => 'leniad',
                 'tipus' => 'cap_de_departament',
-                'email' => 'leinad@fjeclot.net',
+                'email' => 'm07admphp@gmail.com',
                 'password' => Hash::make('fjeClot23#')
             ],
             [

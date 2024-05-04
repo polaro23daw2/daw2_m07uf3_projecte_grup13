@@ -20,10 +20,16 @@
                 </div>
                 <div class="p-6 bg-white border-b border-gray-200">
                     <a href="{{ url('apart') }}">Apartament: Visualitza, actualitza i esborra registres<a />
-                    </div>
+                </div>
                 <div class="p-6 bg-white border-b border-gray-200">
                     <a href="{{ url('apart/create') }}">Apartament: Crea un nou Apartament<a />
-                    </div>
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <a href="{{ url('lloga') }}">Lloga: Visualitza, actualitza i esborra registres<a />
+                </div>
+                <div class="p-6 bg-white border-b border-gray-200">
+                    <a href="{{ url('lloga/create') }}">Lloga: Crea un nou Apartament<a />
+                </div>
             </div>
         </div>
     </div>

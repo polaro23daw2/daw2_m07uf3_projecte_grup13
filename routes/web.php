@@ -1,11 +1,12 @@
 <?php
 
-use App\Http\Controllers\ControladorTreballador;
-use App\Http\Controllers\ClientController;
 use App\Http\Controllers\apartamentsController;
+use App\Http\Controllers\ClientController;
+use App\Http\Controllers\ControladorTreballador;
+use App\Http\Controllers\LloguerController;
+use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\PDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,12 +32,17 @@ Route::middleware('auth')->group(function () {
     // Ruta específica para usuarios no admin
     Route::get('trebs', function () {
         return redirect('trebs/index_basic');
-    })->withoutMiddleware('adminAuth');   
+    })->withoutMiddleware('adminAuth');
 
-    
     Route::get('/pdf/Clients', [PDFController::class, 'generatePDF']);
     Route::get('/pdf/apartaments', [PDFController::class, 'generateApartamentsPDF']);
-    
+
+    ///aqui hago lloga///
+    Route::get('/lloga/{dni_client}/{codi_unic}/edit', [LloguerController::class, 'edit'])->name('lloga.edit');
+    Route::put('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'update'])->name('lloga.update');
+    Route::delete('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'destroy'])->name('lloga.destroy');
+
+    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy']);
 
     Route::resource('apart', apartamentsController::class);
     Route::resource('clients', ClientController::class);
