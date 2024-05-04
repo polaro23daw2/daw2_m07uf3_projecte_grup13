@@ -3,13 +3,17 @@
 <head>
     <title>Llista de Clients</title>
     <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            font-size: 10px; /* Ajustar según necesidad */
+        }
         table {
             width: 100%;
             border-collapse: collapse;
         }
         th, td {
             border: 1px solid black;
-            padding: 8px;
+            padding: 6px;
             text-align: left;
         }
         .table-primary {
@@ -51,5 +55,8 @@
             @endforeach
         </tbody>
     </table>
+    <div class="p-6 bg-white border-b border-gray-200">
+        <a href="{{ url('dashboard-basic') }}">Torna al dashboard dels Clients</a>
+    </div>
 </body>
 </html>

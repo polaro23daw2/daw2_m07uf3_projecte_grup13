@@ -35,13 +35,16 @@
                         <td>{{ $apartament->calefaccio }}</td>
                         <td>{{ $apartament->aire_condicionat ? 'Sí' : 'No' }}</td>
                         <td class="text-left">
-                            <a href="{{ route('apart.edit', $apartament->codi_unic) }}" class="btn btn-primary btn-sm">Edita</a>
-                            <form action="{{ route('apart.destroy', $apartament->codi_unic) }}" method="post"style="display: inline-block">
+                            <a href="{{ route('apart.edit', $apartament->codi_unic) }}"
+                                class="btn btn-primary btn-sm">Edita</a>
+                            <form action="{{ route('apart.destroy', $apartament->codi_unic) }}"
+                                method="post"style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Esborra</button>
                             </form>
-                            <a href="{{ route('apart.show', $apartament->codi_unic) }}" class="btn btn-info btn-sm">Mostra</a>
+                            <a href="{{ route('apart.show', $apartament->codi_unic) }}"
+                                class="btn btn-info btn-sm">Mostra</a>
                         </td>
                     </tr>
                 @endforeach
@@ -50,5 +53,8 @@
         <div>
             <div class="p-6 bg-white border-b border-gray-200">
                 <a href="{{ url('dashboard-basic') }}">Torna al dashboard<a />
+            </div>
+            <div class="p-6 bg-white border-b border-gray-200">
+                <a href="{{ url('/pdf/apartaments') }}">hacer pdf</a>
             </div>
         @endsection

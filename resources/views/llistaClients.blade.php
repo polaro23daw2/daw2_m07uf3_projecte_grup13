@@ -49,7 +49,7 @@
             <a href="{{ url('dashboard-basic') }}">Torna al dashboard dels Clients</a>
         </div>
         <div class="p-6 bg-white border-b border-gray-200">
-            <a href="{{ url('pdfView') }}">hacer pdf</a>
+            <a href="{{ url('/pdf/Clients') }}">hacer pdf</a>
         </div>
     </div>
 @endsection

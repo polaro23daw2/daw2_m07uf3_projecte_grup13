@@ -34,7 +34,10 @@ Route::middleware('auth')->group(function () {
     })->withoutMiddleware('adminAuth');   
 
     
-    Route::get('/pdf', [PDFController::class, 'generatePDF']);
+    Route::get('/pdf/Clients', [PDFController::class, 'generatePDF']);
+    Route::get('/pdf/apartaments', [PDFController::class, 'generateApartamentsPDF']);
+    
+
     Route::resource('apart', apartamentsController::class);
     Route::resource('clients', ClientController::class);
 
