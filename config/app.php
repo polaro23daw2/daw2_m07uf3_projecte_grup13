@@ -1,6 +1,7 @@
 <?php
 
 return [
+    
 
     /*
     |--------------------------------------------------------------------------
@@ -124,5 +125,8 @@ return [
     ],
 
     'PDF' => Barryvdh\DomPDF\Facade::class,
+    // Telegram\Bot\Laravel\TelegramServiceProvider::class,
+    // 'Telegram' => Telegram\Bot\Laravel\Facades\Telegram::class,
 
 ];
+
