@@ -18,6 +18,7 @@ return array(
     'App\\Http\\Controllers\\ClientController' => $baseDir . '/app/Http/Controllers/ClientController.php',
     'App\\Http\\Controllers\\ControladorTreballador' => $baseDir . '/app/Http/Controllers/ControladorTreballador.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
+    'App\\Http\\Controllers\\PDFController' => $baseDir . '/app/Http/Controllers/PDFController.php',
     'App\\Http\\Controllers\\ProfileController' => $baseDir . '/app/Http/Controllers/ProfileController.php',
     'App\\Http\\Kernel' => $baseDir . '/app/Http/Kernel.php',
     'App\\Http\\Middleware\\AdminAuth' => $baseDir . '/app/Http/Middleware/AdminAuth.php',
