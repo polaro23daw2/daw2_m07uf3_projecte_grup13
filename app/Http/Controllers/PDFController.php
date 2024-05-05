@@ -9,11 +9,11 @@ use PDF;
 
 class PDFController extends Controller
 {
-    public function generatePDF()
+    public function generatePDF($dni_client)
     {
-        $clients = Client::all();
-        $pdf = PDF::loadView('pdfView', compact('clients'))->setPaper('a4', 'landscape');
-        return $pdf->stream('llista_clients.pdf');
+        $client = Client::where('dni_client', $dni_client)->firstOrFail();
+        $pdf = PDF::loadView('pdfView', compact('client'))->setPaper('a4', 'landscape');
+        return $pdf->stream("client_{$dni_client}.pdf");
     }
     public function generateApartamentsPDF()
     {

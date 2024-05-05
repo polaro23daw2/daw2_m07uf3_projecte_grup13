@@ -40,6 +40,9 @@
                                 <button type="submit" class="btn btn-danger btn-sm">Esborra</button>
                             </form>
                             <a href="{{ route('clients.show', $client->dni_client) }}" class="btn btn-info btn-sm">Mostra</a>
+                            <div class="p-6 bg-white border-b border-gray-200">
+                                <a href="{{ route('pdf.client', $client->dni_client) }}">hacer pdf</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
@@ -47,9 +50,6 @@
         </table>
         <div class="p-6 bg-white border-b border-gray-200">
             <a href="{{ url('dashboard-basic') }}">Torna al dashboard dels Clients</a>
-        </div>
-        <div class="p-6 bg-white border-b border-gray-200">
-            <a href="{{ url('/pdf/Clients') }}">hacer pdf</a>
         </div>
     </div>
 @endsection
