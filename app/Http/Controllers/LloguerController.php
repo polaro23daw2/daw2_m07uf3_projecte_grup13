@@ -54,9 +54,12 @@ class LloguerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $dni_client, string $codi_unic)
     {
-        //
+        $dades_lloga = Lloga::where('dni_client', $dni_client)
+                            ->where('codi_unic', $codi_unic)
+                            ->firstOrFail();
+        return view('mostraLloga', compact('dades_lloga'));
     }
 
     /**
@@ -76,6 +79,7 @@ class LloguerController extends Controller
      */
     public function update(Request $request, string $dni_client, string $codi_unic)
     {
+        // Validación de los datos del lloga
         $noves_dades_lloga = $request->validate([
             'data_inici_lloguer' => 'required|date',
             'hora_inici_lloguer' => 'required',
@@ -88,14 +92,12 @@ class LloguerController extends Controller
             'quantitat_diposit' => 'required|numeric',
             'tipus_asseguranca' => 'required|string|in:Franquícia fins a 1000 Euros,Franquícia fins a 500 Euros,Sense franquícia',
         ]);
-    
-        $lloga = Lloga::where('dni_client', $dni_client)
-            ->where('codi_unic', $codi_unic)
-            ->firstOrFail();
-    
-        $lloga->update($noves_dades_lloga);
-    
-        return redirect()->route('dashboard-basic')->with('success', 'Lloguer updated successfully.');
+
+        // Encuentra el registro correspondiente en la tabla Lloga y actualiza sus datos
+        Lloga::where('dni_client', $dni_client)
+                    ->where('codi_unic', $codi_unic)
+                    ->update($noves_dades_lloga);
+        return view('dashboard-basic');
     }
         
 
@@ -104,7 +106,10 @@ class LloguerController extends Controller
      */
     public function destroy(string $dni_client, string $codi_unic)
     {
-        //
+        Lloga::where('dni_client', $dni_client)
+                    ->where('codi_unic', $codi_unic)
+                    ->delete();
+        return view('dashboard-basic');
     }
     
 }

@@ -43,10 +43,11 @@ Route::middleware('auth')->group(function () {
         ///aqui hago lloga///
     Route::get('/lloga/{dni_client}/{codi_unic}/edit', [LloguerController::class, 'edit'])->name('lloga.edit');
     Route::put('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'update'])->name('lloga.update');
+    Route::get('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'show'])->name('lloga.show');
     Route::delete('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'destroy'])->name('lloga.destroy');
 
     Route::resource('clients', ClientController::class);
-    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy']);
+    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy','show']);
     Route::resource('apart', apartamentsController::class);
 
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');

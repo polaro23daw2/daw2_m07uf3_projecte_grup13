@@ -40,12 +40,12 @@
                         <td>{{ $lloga->tipus_asseguranca }}</td>
                          <td class="text-left">
                             <a href="{{ route('lloga.edit', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" class="btn btn-primary btn-sm">Edita</a>
-                            {{--<form action="{{ route('lloga.destroy', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" method="post" style="display: inline-block">
+                            <form action="{{ route('lloga.destroy', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" method="post" style="display: inline-block">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-danger btn-sm">Esborra</button>
                             </form>
-                            <a href="{{ route('lloga.show', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" class="btn btn-info btn-sm">Mostra</a>--}}
+                            <a href="{{ route('lloga.show', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" class="btn btn-info btn-sm">Mostra</a>
                         </td>
                     </tr>
                 @endforeach
