@@ -1,10 +1,5 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard dels usuaris tipus bàsic') }}
-        </h2>
-    </x-slot>
 @extends('disseny')
+
 @section('content')
     <h1>Llista de clients</h1>
     <div class="mt-5">
@@ -58,4 +53,3 @@
         </div>
     </div>
 @endsection
-</x-app-layout>

@@ -17,15 +17,15 @@ class UserSeeder extends Seeder
     {
         $llista_usuaris = [
             [
-                'name' => 'leniad',
+                'name' => 'Yoda',
                 'tipus' => 'cap_de_departament',
                 'email' => 'm07admphp@gmail.com',
                 'password' => Hash::make('fjeClot23#')
             ],
             [
-                'name' => 'aletse',
+                'name' => 'anakin',
                 'tipus' => 'treballador',
-                'email' => 'aletse@fjeclot.net',
+                'email' => 'polsapir@gmail.com',
                 'password' => Hash::make('clotFje24@')
             ],
         ];

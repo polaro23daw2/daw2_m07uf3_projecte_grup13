@@ -6,7 +6,6 @@ use App\Http\Controllers\ControladorTreballador;
 use App\Http\Controllers\LloguerController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
-use App\Http\Controllers\TelegramController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,24 +34,20 @@ Route::middleware('auth')->group(function () {
         return redirect('trebs/index_basic');
     })->withoutMiddleware('adminAuth');
 
-    // // Route::get('/activity', [TelegramController::class, 'updatedActivity']);
-    // // Route::get('/send-telegram-message', [TelegramController::class, 'sendMessage']);
-
-    // Route::post('/telegram/webhook', [TelegramController::class, 'webhook'])->name('telegram.webhook');
-    // Route::get('/telegram/send-message', [TelegramController::class, 'sendMessage']);
 
     Route::get('/pdf/Clients', [PDFController::class, 'generatePDF']);
     Route::get('/pdf/apartaments', [PDFController::class, 'generateApartamentsPDF']);
 
-    ///aqui hago lloga///
+
+    
+        ///aqui hago lloga///
     Route::get('/lloga/{dni_client}/{codi_unic}/edit', [LloguerController::class, 'edit'])->name('lloga.edit');
     Route::put('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'update'])->name('lloga.update');
     Route::delete('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'destroy'])->name('lloga.destroy');
 
-    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy']);
-
-    Route::resource('apart', apartamentsController::class);
     Route::resource('clients', ClientController::class);
+    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy']);
+    Route::resource('apart', apartamentsController::class);
 
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');
     Route::get('trebs/show_basic/{tid}', [ControladorTreballador::class, 'show_basic'])->name('trebs.show_basic');
