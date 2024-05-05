@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/pdf/Apartament/{codi_unic}', [PDFController::class, 'generateApartmentPDF'])->name('pdf.apartament');
 
 
-    
+        ///esto es un cambio /////
         ///aqui hago lloga///
     Route::get('/lloga/{dni_client}/{codi_unic}/edit', [LloguerController::class, 'edit'])->name('lloga.edit');
     Route::put('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'update'])->name('lloga.update');
