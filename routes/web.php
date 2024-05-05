@@ -71,5 +71,6 @@ Route::middleware('auth')->group(function () {
 });
 
 // GIT funcionas?
+// si funciono
 
 require __DIR__ . '/auth.php';
