@@ -45,6 +45,9 @@
                             </form>
                             <a href="{{ route('apart.show', $apartament->codi_unic) }}"
                                 class="btn btn-info btn-sm">Mostra</a>
+                            <div class="p-6 bg-white border-b border-gray-200">
+                                <a href="{{ route('pdf.apartament', $apartament->codi_unic) }}">hacer pdf</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach

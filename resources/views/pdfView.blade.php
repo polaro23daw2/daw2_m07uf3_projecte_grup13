@@ -48,6 +48,8 @@
         <tbody>
             @if (isset($client))
                 <tr>
+
+                
                     <td>{{ $client->dni_client }}</td>
                     <td>{{ $client->nom_i_cognoms }}</td>
                     <td>{{ $client->edat }}</td>

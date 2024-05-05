@@ -50,9 +50,9 @@ class ApartamentsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($tid)
+    public function show($codi_unic)
     {
-        $dades_apartament = Apartament::findOrFail($tid);
+        $dades_apartament = Apartament::findOrFail($codi_unic);
         return view('mostraApart', compact('dades_apartament'));
     }
 

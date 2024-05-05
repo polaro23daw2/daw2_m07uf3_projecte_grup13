@@ -15,11 +15,11 @@ class PDFController extends Controller
         $pdf = PDF::loadView('pdfView', compact('client'))->setPaper('a4', 'landscape');
         return $pdf->stream("client_{$dni_client}.pdf");
     }
-    public function generateApartamentsPDF()
+    public function generateApartmentPDF($codi_unic)
     {
-        $apartaments = Apartament::all(); 
-        $pdf = PDF::loadView('apartamentsPDF', compact('apartaments'))->setPaper('a4', 'landscape');
-        return $pdf->stream('llista_apartaments.pdf');
+        $apartament = Apartament::where('codi_unic', $codi_unic)->firstOrFail();
+        $pdf = PDF::loadView('unicApartamentPDF', compact('apartament'))->setPaper('a4', 'landscape');
+        return $pdf->stream("apartament_{$codi_unic}.pdf");
     }
-    
+            
 }

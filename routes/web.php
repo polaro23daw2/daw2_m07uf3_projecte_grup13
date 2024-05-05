@@ -36,7 +36,7 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/pdf/Clients/{dni_client}', [PDFController::class, 'generatePDF'])->name('pdf.client');
-    Route::get('/pdf/apartaments', [PDFController::class, 'generateApartamentsPDF']);
+    Route::get('/pdf/Apartament/{codi_unic}', [PDFController::class, 'generateApartmentPDF'])->name('pdf.apartament');
 
 
     
