@@ -1,4 +1,6 @@
-@extends('disseny')
+<x-app-layout>
+
+extends('disseny')
 @section('content')
 <h1>Dades del treballador</h1>
 <div class="mt-5">
@@ -89,4 +91,6 @@
 	<a href="{{ url('trebs/index_basic') }}">Torna a la llista<a/>
   </div>
 <div>
+</x-app-layout>
+
 @endsection

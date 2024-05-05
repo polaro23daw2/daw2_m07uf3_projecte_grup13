@@ -1,3 +1,4 @@
+<x-app-layout>
 @extends('disseny')
 @section('content')
     <h1>Llista d'empleats</h1>
@@ -35,4 +36,6 @@
             @endif
         </div>
         <div>
+        </x-app-layout>
+
         @endsection

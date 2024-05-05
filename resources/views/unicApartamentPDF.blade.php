@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
 
@@ -86,5 +87,5 @@
         <a href="{{ url('dashboard-basic') }}">Torna al dashboard dels Clients<a />
     </div>
 </body>
-
 </html>
+</x-app-layout>

@@ -1,5 +1,4 @@
 @extends('disseny')
-
 @section('content')
     <h1>Llista de clients</h1>
     <div class="mt-5">

@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html>
  <head>
@@ -17,3 +18,4 @@
 type="text/js"></script>
  </body>
 </html>
+</x-app-layout>

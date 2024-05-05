@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -20,3 +21,4 @@ Comprova que:
 </p>
 </body>
 </html>
+</x-app-layout>

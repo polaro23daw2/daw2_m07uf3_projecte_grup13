@@ -1,3 +1,4 @@
+<x-app-layout>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -45,3 +46,4 @@
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 </html>
+</x-app-layout>
