@@ -1,4 +1,11 @@
 <x-guest-layout>
+    <!-- Mensaje de error de inicio de sesión -->
+    @if ($errors->has('login_error'))
+        <div class="alert alert-danger">
+            {{ $errors->first('login_error') }}
+        </div>
+    @endif
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +51,12 @@
             </x-primary-button>
         </div>
     </form>
+    
+    <!-- Enlaces a las vistas de error -->
+    <div class="mt-4">
+        <a href="{{ route('error.usuario') }}">Error de usuario</a><br>
+        <a href="{{ route('error.contrasenya') }}">Error de contraseña</a><br>
+        <a href="{{ route('error.db.conexion') }}">Error de conexión a la base de datos</a><br>
+        <a href="{{ route('error.db.lectura') }}">Error de lectura de la base de datos</a>
+    </div>
 </x-guest-layout>

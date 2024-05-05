@@ -7,6 +7,7 @@ use App\Http\Controllers\LloguerController;
 use App\Http\Controllers\PDFController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,15 +41,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/pdf/Lloguers/{dni_client}/{codi_unic}', [PDFController::class, 'generateLlogaPDF'])->name('pdf.lloga');
 
 
-        ///esto es un cambio /////
-        ///aqui hago lloga///
+    ///esto es un cambio /////
+    ///aqui hago lloga///
     Route::get('/lloga/{dni_client}/{codi_unic}/edit', [LloguerController::class, 'edit'])->name('lloga.edit');
     Route::put('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'update'])->name('lloga.update');
     Route::get('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'show'])->name('lloga.show');
     Route::delete('/lloga/{dni_client}/{codi_unic}', [LloguerController::class, 'destroy'])->name('lloga.destroy');
 
     Route::resource('clients', ClientController::class);
-    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy','show']);
+    Route::resource('lloga', LloguerController::class)->except(['edit', 'update', 'destroy', 'show']);
     Route::resource('apart', apartamentsController::class);
 
     Route::get('trebs/index_basic', [ControladorTreballador::class, 'index_basic'])->name('trebs.index_basic');
@@ -61,10 +62,17 @@ Route::middleware('auth')->group(function () {
 
         // Rutas de admin para 'trebs'
         Route::resource('trebs', ControladorTreballador::class);
-
     });
-
 });
+
+//Login 
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [LoginController::class, 'login']);
+
+Route::view('/error-usuario', 'error_usuario')->name('error.usuario');
+Route::view('/error-contrasenya', 'error_contrasenya')->name('error.contrasenya');
+Route::view('/error-db-conexion', 'error_db_conexion')->name('error.db.conexion');
+Route::view('/error-db-lectura', 'error_db_lectura')->name('error.db.lectura');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
