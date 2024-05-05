@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Apartament;
+use App\Models\Lloga;
 use PDF;
 
 class PDFController extends Controller
@@ -21,5 +22,12 @@ class PDFController extends Controller
         $pdf = PDF::loadView('unicApartamentPDF', compact('apartament'))->setPaper('a4', 'landscape');
         return $pdf->stream("apartament_{$codi_unic}.pdf");
     }
-            
+    public function generateLlogaPDF($dni_client,$codi_unic)
+    {
+        $lloga = Lloga::where('dni_client', $dni_client)
+                    ->where('codi_unic', $codi_unic)
+                    ->first();
+        $pdf = PDF::loadView('pdfLloga', compact('lloga'))->setPaper('a4', 'landscape');
+        return $pdf->stream("lloga" . $dni_client . $codi_unic . ".pdf");
+    } 
 }

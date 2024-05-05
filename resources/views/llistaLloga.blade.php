@@ -45,6 +45,9 @@
                                 <button type="submit" class="btn btn-danger btn-sm">Esborra</button>
                             </form>
                             <a href="{{ route('lloga.show', ['dni_client' => $lloga->dni_client, 'codi_unic' => $lloga->codi_unic]) }}" class="btn btn-info btn-sm">Mostra</a>
+                            <div class="p-6 bg-white border-b border-gray-200">
+                                <a href="{{ route('pdf.lloga', ['dni_client' => $lloga->dni_client, 'codi_unic' =>$lloga->codi_unic]) }}">hacer pdf</a>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
