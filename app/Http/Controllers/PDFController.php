@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Client;
 use App\Models\Apartament;
 use App\Models\Lloga;
+use App\Models\Treballador;
 use PDF;
 
 class PDFController extends Controller
@@ -29,5 +30,12 @@ class PDFController extends Controller
                     ->first();
         $pdf = PDF::loadView('pdfLloga', compact('lloga'))->setPaper('a4', 'landscape');
         return $pdf->stream("lloga" . $dni_client . $codi_unic . ".pdf");
-    } 
+    }
+    public function generateTreballadorsPDF($tid)
+    {
+        $treballador = Treballador::where('tid', $tid)->firstOrFail();
+        $pdf = PDF::loadView('pdfTreballadors', compact('treballador'))->setPaper('a4', 'landscape');
+        return $pdf->stream("treballadors_{$tid}.pdf");
+    }
+    
 }

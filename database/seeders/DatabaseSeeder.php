@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ClientSeeder::class,
             ApartamentsSeeders::class,
+            TreballadorsTableSeeder::class,
         ]);
     }
 }
