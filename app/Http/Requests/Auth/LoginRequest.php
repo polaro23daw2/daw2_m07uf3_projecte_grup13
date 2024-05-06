@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Str;
 use Illuminate\Validation\ValidationException;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class LoginRequest extends FormRequest
 {
@@ -37,21 +39,57 @@ class LoginRequest extends FormRequest
      *
      * @throws \Illuminate\Validation\ValidationException
      */
+    
     public function authenticate(): void
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        try {            
+        if (!Auth::attempt($this->only('email', 'password'), $this->boolean('remember'))) {
             RateLimiter::hit($this->throttleKey());
-
-            throw ValidationException::withMessages([
-                'email' => trans('auth.failed'),
-            ]);
+        
+            $errors = [];
+            $user = User::where('email', $this->email)->first();
+            if (!$user) {
+                $errors['email'] = 'Usuari incorrecte';
+                throw ValidationException::withMessages([
+                    'database' => 'Usuari incorrecte!',
+                ]);
+            } elseif (!Hash::check($this->password, $user->password)) {
+                $errors['password'] = 'Contrasenya incorrecta';
+                throw ValidationException::withMessages([
+                    'database' => 'Contrasenya incorrecte!',
+                ]);
+            }
+        
+            throw ValidationException::withMessages($errors);
         }
+        } catch (\PDOException $e) {
+            throw ValidationException::withMessages([
+                'database' => 'Error de connexiÃ³ a la base de dades',
+            ]);
+        } catch (\Exception $e) {
+            \Log::error($e);  // Log the full exception
+        
+            $errors = [];
+            $user = User::where('email', $this->email)->first();
+            if (!$user) {
+                $errors['email'] = 'Usuari incorrecte';
+                throw ValidationException::withMessages([
+                    'database' => 'Usuari incorrecte!',
+                ]);
+            } elseif (!Hash::check($this->password, $user->password)) {
+                $errors['password'] = 'Contrasenya incorrecta';
+                throw ValidationException::withMessages([
+                    'database' => 'Contrasenya incorrecte!',
+                ]);
+            }
+        }
+        
 
         RateLimiter::clear($this->throttleKey());
+        
     }
-
     /**
      * Ensure the login request is not rate limited.
      *

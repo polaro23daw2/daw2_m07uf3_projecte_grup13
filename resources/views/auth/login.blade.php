@@ -11,7 +11,16 @@
 
     <form method="POST" action="{{ route('login') }}">
         @csrf
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
         <!-- Email Address -->
         <div>
             <x-input-label for="email" :value="__('Email')" />
@@ -52,11 +61,11 @@
         </div>
     </form>
     
-    <!-- Enlaces a las vistas de error -->
+    {{-- <!-- Enlaces a las vistas de error -->
     <div class="mt-4">
         <a href="{{ route('error.usuario') }}">Error de usuario</a><br>
         <a href="{{ route('error.contrasenya') }}">Error de contraseña</a><br>
         <a href="{{ route('error.db.conexion') }}">Error de conexión a la base de datos</a><br>
         <a href="{{ route('error.db.lectura') }}">Error de lectura de la base de datos</a>
-    </div>
+    </div> --}}
 </x-guest-layout>
